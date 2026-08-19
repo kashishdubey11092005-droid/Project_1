@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    </head> 
+    <style>
+        
+    body {
+        background-color: #000;
+        color: white;
+        font-family: Arial, sans-serif;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        width: 400px;
+        padding: 35px;
+
+        background-color: #111;
+
+        border: 2px solid #39ff14;
+        border-radius: 10px;
+
+        box-shadow:
+            0 0 10px #39ff14,
+            0 0 25px rgba(57, 255, 20, 0.5);
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px;
+
+        box-sizing: border-box;
+
+        background-color: #222;
+        color: white;
+
+        border: 1px solid #555;
+        border-radius: 5px;
+
+        outline: none;
+    }
+
+    input:focus {
+        border-color: #39ff14;
+        box-shadow: 0 0 5px #39ff14;
+    }
+
+    button {
+        display: block;
+
+        margin: 25px auto 0;
+
+        padding: 12px 30px;
+
+        background-color: #39ff14;
+        color: #000;
+
+        border: none;
+        border-radius: 6px;
+
+        font-size: 16px;
+        font-weight: bold;
+
+        cursor: pointer;
+
+        box-shadow: 0 0 10px #39ff14;
+    }
+
+    button:hover {
+        box-shadow:
+            0 0 10px #39ff14,
+            0 0 20px #39ff14;
+    }
+</style>
+    
+    <body>
+        <div class="container">
+        <h1> URL Shortner </h1>
+        <form action="/shorten" method="post">
+            <label for="longUrl">Enter long URL: </label>
+            <input type="text" id="longUrl" name="longUrl" required>
+            <button type="submit">Shorten</button>
+        </form>
+        <% if (shortUrl) { %>
+            <p>Short URL: <a href="<%= shortUrl %>" target="_blank">
+                <%= shortUrl %>
+            </a>
+        </p> 
+        <% } %>
+        </div>
+        
+    </body>
+    </html>
